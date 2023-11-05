@@ -1,7 +1,6 @@
 const express = require('express');
 require('dotenv').config();
-// console.log(process.env);
-
+var cors = require('cors');
 const { dbConnection } = require('./database/config');
 
 // Desestructurar el puerto
@@ -13,6 +12,8 @@ const app = express();
 
 // Base de datos
 dbConnection();
+
+app.use(cors());
 
 // Directorio público
 app.use(express.static('public'));
